@@ -126,6 +126,7 @@ class MainActivity : AppCompatActivity() {
             if (!isChecked || bindingSwitches) return@addOnButtonCheckedListener
             prefs.intervalMinutes = when (checkedId) {
                 R.id.interval_15 -> 15
+                R.id.interval_30 -> 30
                 R.id.interval_60 -> 60
                 R.id.interval_180 -> 180
                 else -> 360
@@ -196,6 +197,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<MaterialButtonToggleGroup>(R.id.interval_group).check(
             when (prefs.intervalMinutes) {
                 15 -> R.id.interval_15
+                30 -> R.id.interval_30
                 60 -> R.id.interval_60
                 180 -> R.id.interval_180
                 else -> R.id.interval_360

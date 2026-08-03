@@ -31,6 +31,7 @@
     <string name="translation_sub">Dr. Mustafa Khattab, The Clear Quran</string>
 
     <string name="interval_15">15 min</string>
+    <string name="interval_30">30 min</string>
     <string name="interval_60">1 hr</string>
     <string name="interval_180">3 hr</string>
     <string name="interval_360">6 hr</string>
