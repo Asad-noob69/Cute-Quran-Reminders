@@ -1,0 +1,13 @@
+# Build
+.gradle/
+build/
+app/build/
+local.properties
+
+# APKs are published via GitHub Releases, not committed
+*.apk
+
+# IDE
+.idea/
+*.iml
+.DS_Store

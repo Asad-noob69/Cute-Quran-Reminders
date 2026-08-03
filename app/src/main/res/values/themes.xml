@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.CuteQuran" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/lavender_deep</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/lavender</item>
+        <item name="colorSecondary">@color/blush</item>
+        <item name="colorSurface">@color/cream</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="android:statusBarColor">@color/bg_top</item>
+        <item name="android:navigationBarColor">@color/bg_bottom</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+        <item name="fontFamily">@font/quicksand_regular</item>
+        <item name="android:fontFamily">@font/quicksand_regular</item>
+    </style>
+
+    <style name="CuteCard">
+        <item name="cardCornerRadius">30dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/cream</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <style name="SectionHeader">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginStart">6dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="SectionIcon">
+        <item name="android:layout_width">17dp</item>
+        <item name="android:layout_height">17dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:contentDescription">@string/cd_section</item>
+        <item name="tint">@color/ink_soft</item>
+    </style>
+
+    <style name="SectionTitle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/ink_soft</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:letterSpacing">0.03</item>
+    </style>
+
+    <style name="SwitchRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingVertical">14dp</item>
+    </style>
+
+    <style name="RowIcon">
+        <item name="android:layout_width">38dp</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:layout_marginEnd">14dp</item>
+        <item name="android:padding">9dp</item>
+        <item name="android:contentDescription">@null</item>
+    </style>
+
+    <style name="RowText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="HintRow">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/hint_bg</item>
+        <item name="android:paddingHorizontal">16dp</item>
+        <item name="android:paddingVertical">14dp</item>
+    </style>
+
+    <style name="HintIcon">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_marginEnd">12dp</item>
+        <item name="android:contentDescription">@null</item>
+        <item name="tint">#C98A3E</item>
+    </style>
+
+    <style name="HintText">
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+        <item name="android:textColor">@color/ink_soft</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="RowTitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+    </style>
+
+    <style name="RowSub">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/ink_faint</item>
+        <item name="android:fontFamily">@font/quicksand_regular</item>
+        <item name="android:layout_marginTop">2dp</item>
+    </style>
+</resources>

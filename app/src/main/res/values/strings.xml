@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ayah Cutie</string>
+    <string name="tagline">a little light, every day</string>
+
+    <string name="new_verse">New ayah</string>
+    <string name="share_verse">Share ayah</string>
+    <string name="share">Share</string>
+
+    <string name="channel_name">Verse on lock screen</string>
+    <string name="channel_desc">Keeps the current ayah pinned to your lock screen.</string>
+    <string name="channel_service_name">Floating card</string>
+    <string name="channel_service_desc">Silent placeholder that keeps the floating ayah card on screen.</string>
+
+    <string name="floating_only">Floating ayah is on</string>
+    <string name="show_bubble">Float it</string>
+    <string name="hide_bubble">Unfloat</string>
+
+    <string name="section_where">Where should it show?</string>
+    <string name="section_what">What to show</string>
+    <string name="section_when">How often a new ayah</string>
+
+    <string name="lock_title">On my lock screen</string>
+    <string name="lock_sub">Pins the ayah to your lock screen and shade</string>
+    <string name="bubble_title">Floating over apps</string>
+    <string name="bubble_sub">A little card on top of whatever you are doing</string>
+
+    <string name="arabic_title">Arabic</string>
+    <string name="arabic_sub">Uthmani script</string>
+    <string name="translation_title">English meaning</string>
+    <string name="translation_sub">Dr. Mustafa Khattab, The Clear Quran</string>
+
+    <string name="interval_15">15 min</string>
+    <string name="interval_60">1 hr</string>
+    <string name="interval_180">3 hr</string>
+    <string name="interval_360">6 hr</string>
+    <string name="interval_saved">Saved</string>
+
+    <string name="keep_one">Keep at least one of them on</string>
+    <string name="need_notifications">Notifications are needed for the lock screen ayah</string>
+    <string name="need_overlay">Permission not granted, so the floating card stays off</string>
+    <string name="grant_overlay">Please allow \"Display over other apps\"</string>
+    <string name="no_settings">Could not open settings on this device</string>
+
+    <string name="battery_hint">Ayah not refreshing? Tap here, then Battery, then Unrestricted.</string>
+    <string name="samsung_hint">Not showing on your lock screen? Open Settings, then Lock screen, then Notifications, and set View style to Details with Show content on.</string>
+    <string name="widget_hint">Long-press your home screen, then Widgets, then Ayah Cutie.</string>
+
+    <string name="cd_shuffle">Show another ayah</string>
+    <string name="cd_close">Close</string>
+    <string name="cd_minimise">Minimise</string>
+    <string name="cd_drag">Drag to move</string>
+    <string name="cd_section">Section</string>
+    <string name="widget_label">Ayah Cutie</string>
+</resources>

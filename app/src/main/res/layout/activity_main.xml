@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="34dp"
+        android:paddingBottom="36dp">
+
+        <!-- header -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginEnd="9dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_moon"
+                app:tint="@color/lavender_deep" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/app_name"
+                android:textColor="@color/ink"
+                android:textSize="26sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="20dp"
+            android:alpha="0.85"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_marginEnd="6dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_sparkle"
+                app:tint="@color/blush" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_regular"
+                android:text="@string/tagline"
+                android:textColor="@color/ink_soft"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- verse card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/verse_card"
+            style="@style/CuteCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="26dp">
+
+                <TextView
+                    android:id="@+id/verse_reference"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/pill_soft"
+                    android:drawableStart="@drawable/ic_moon_small"
+                    android:drawablePadding="7dp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="7dp"
+                    android:textColor="@color/lavender_deep"
+                    android:textSize="13sp"
+                    tools:text="Al-Baqara 2:255" />
+
+                <TextView
+                    android:id="@+id/verse_meaning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/quicksand_regular"
+                    android:textColor="@color/ink_faint"
+                    android:textSize="12sp"
+                    tools:text="The Cow" />
+
+                <TextView
+                    android:id="@+id/verse_arabic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:fontFamily="@font/amiri_quran"
+                    android:gravity="center"
+                    android:lineSpacingMultiplier="1.55"
+                    android:textColor="@color/ink"
+                    android:textDirection="rtl"
+                    android:textSize="24sp"
+                    tools:text="بِسۡمِ ٱللَّهِ" />
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginVertical="18dp"
+                    android:background="@drawable/divider_soft" />
+
+                <TextView
+                    android:id="@+id/verse_english"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+                    android:lineSpacingMultiplier="1.35"
+                    android:textColor="@color/ink_soft"
+                    android:textSize="16sp"
+                    tools:text="In the Name of Allah" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- actions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_shuffle"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/quicksand_bold"
+                android:letterSpacing="0.02"
+                android:text="@string/new_verse"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                app:backgroundTint="@color/lavender_deep"
+                app:cornerRadius="28dp"
+                app:icon="@drawable/ic_shuffle"
+                app:iconGravity="textStart"
+                app:iconTint="@color/white" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_share"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/share"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:minWidth="56dp"
+                app:cornerRadius="28dp"
+                app:icon="@drawable/ic_share"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconTint="@color/lavender_deep"
+                app:strokeColor="@color/lavender" />
+        </LinearLayout>
+
+        <!-- where -->
+        <LinearLayout
+            style="@style/SectionHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp">
+
+            <ImageView
+                style="@style/SectionIcon"
+                android:src="@drawable/ic_layers" />
+
+            <TextView
+                style="@style/SectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/section_where" />
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CuteCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="26dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="18dp"
+                android:paddingVertical="8dp">
+
+                <LinearLayout style="@style/SwitchRow">
+
+                    <ImageView
+                        style="@style/RowIcon"
+                        android:background="@drawable/icon_circle_lavender"
+                        android:src="@drawable/ic_lock_screen"
+                        app:tint="@color/lavender_deep" />
+
+                    <LinearLayout style="@style/RowText">
+
+                        <TextView
+                            style="@style/RowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lock_title" />
+
+                        <TextView
+                            style="@style/RowSub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lock_sub" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switch_lock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/divider_soft" />
+
+                <LinearLayout style="@style/SwitchRow">
+
+                    <ImageView
+                        style="@style/RowIcon"
+                        android:background="@drawable/icon_circle_blush"
+                        android:src="@drawable/ic_bubble"
+                        app:tint="@color/blush" />
+
+                    <LinearLayout style="@style/RowText">
+
+                        <TextView
+                            style="@style/RowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bubble_title" />
+
+                        <TextView
+                            style="@style/RowSub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bubble_sub" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switch_bubble"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- what -->
+        <LinearLayout
+            style="@style/SectionHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp">
+
+            <ImageView
+                style="@style/SectionIcon"
+                android:src="@drawable/ic_text_format" />
+
+            <TextView
+                style="@style/SectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/section_what" />
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CuteCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="26dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="18dp"
+                android:paddingVertical="8dp">
+
+                <LinearLayout style="@style/SwitchRow">
+
+                    <ImageView
+                        style="@style/RowIcon"
+                        android:background="@drawable/icon_circle_mint"
+                        android:src="@drawable/ic_moon_small" />
+
+                    <LinearLayout style="@style/RowText">
+
+                        <TextView
+                            style="@style/RowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/arabic_title" />
+
+                        <TextView
+                            style="@style/RowSub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/arabic_sub" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switch_arabic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/divider_soft" />
+
+                <LinearLayout style="@style/SwitchRow">
+
+                    <ImageView
+                        style="@style/RowIcon"
+                        android:background="@drawable/icon_circle_peach"
+                        android:src="@drawable/ic_translate"
+                        app:tint="#D99B54" />
+
+                    <LinearLayout style="@style/RowText">
+
+                        <TextView
+                            style="@style/RowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/translation_title" />
+
+                        <TextView
+                            style="@style/RowSub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/translation_sub" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switch_translation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- when -->
+        <LinearLayout
+            style="@style/SectionHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp">
+
+            <ImageView
+                style="@style/SectionIcon"
+                android:src="@drawable/ic_clock" />
+
+            <TextView
+                style="@style/SectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/section_when" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/interval_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/interval_15"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="@string/interval_15"
+                android:textAllCaps="false"
+                android:textSize="13sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/interval_60"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="@string/interval_60"
+                android:textAllCaps="false"
+                android:textSize="13sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/interval_180"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="@string/interval_180"
+                android:textAllCaps="false"
+                android:textSize="13sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/interval_360"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="@string/interval_360"
+                android:textAllCaps="false"
+                android:textSize="13sp" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <!-- hints -->
+        <LinearLayout
+            android:id="@+id/lockscreen_hint"
+            style="@style/HintRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp">
+
+            <ImageView
+                style="@style/HintIcon"
+                android:src="@drawable/ic_lock_screen" />
+
+            <TextView
+                style="@style/HintText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/samsung_hint" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/battery_hint"
+            style="@style/HintRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                style="@style/HintIcon"
+                android:src="@drawable/ic_battery" />
+
+            <TextView
+                style="@style/HintText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/battery_hint" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/HintRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                style="@style/HintIcon"
+                android:src="@drawable/ic_widgets" />
+
+            <TextView
+                style="@style/HintText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_hint" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

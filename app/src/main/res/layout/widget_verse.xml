@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_bg"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="14dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="7dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_moon_small" />
+
+        <TextView
+            android:id="@+id/widget_reference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/quicksand_bold"
+            android:singleLine="true"
+            android:textColor="@color/lavender_deep"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/widget_shuffle"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/widget_btn_bg"
+            android:contentDescription="@string/cd_shuffle"
+            android:padding="7dp"
+            android:src="@drawable/ic_shuffle"
+            android:tint="@color/lavender_deep" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/widget_arabic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/amiri_quran"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.45"
+        android:maxLines="4"
+        android:textColor="@color/ink"
+        android:textDirection="rtl"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/widget_english"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/quicksand_medium"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.25"
+        android:maxLines="4"
+        android:textColor="@color/ink_soft"
+        android:textSize="13sp" />
+</LinearLayout>

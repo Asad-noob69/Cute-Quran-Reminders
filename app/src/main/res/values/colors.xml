@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="lavender">#B69CFF</color>
+    <color name="lavender_deep">#7C5CE0</color>
+    <color name="blush">#FFB7D5</color>
+    <color name="peach">#FFD8B0</color>
+    <color name="mint">#A8E6CF</color>
+    <color name="sky">#BFE3FF</color>
+
+    <color name="cream">#FFFBF6</color>
+    <color name="cream_soft">#FFF3E9</color>
+    <color name="ink">#3D3355</color>
+    <color name="ink_soft">#6B6188</color>
+    <color name="ink_faint">#9A93AE</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="bg_top">#FDE8F3</color>
+    <color name="bg_mid">#EDE4FF</color>
+    <color name="bg_bottom">#DFF3F6</color>
+
+    <color name="widget_scrim">#F2FFFBF6</color>
+</resources>
