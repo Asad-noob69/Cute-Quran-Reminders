@@ -22,6 +22,9 @@ class VerseWidget : AppWidgetProvider() {
         manager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
+        // The launcher pokes us on its own half-hourly schedule, which is one more timer
+        // the OEM power manager can't take away — use it to catch up and re-arm ours.
+        VerseRefresher.catchUp(context)
         appWidgetIds.forEach { id ->
             manager.updateAppWidget(id, buildViews(context, manager.getAppWidgetOptions(id)))
         }

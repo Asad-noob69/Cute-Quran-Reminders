@@ -12,21 +12,20 @@ import android.content.Intent
 class VerseActionReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
-        val prefs = Prefs(context)
-
         when (intent.action) {
-            ACTION_TICK, ACTION_SHUFFLE -> {
-                prefs.shuffle()
-                VerseNotifier.post(context)
-                VerseWidget.refreshAll(context)
-                VerseService.notifyRefresh(context)
-                VerseScheduler.scheduleNext(context)
-            }
+            // The timer fired. Go through catchUp rather than shuffling blindly so the
+            // alarm and the backup worker can't double-shuffle if they land together.
+            ACTION_TICK -> VerseRefresher.catchUp(context)
+
+            // The user asked for it, so always give them a new one.
+            ACTION_SHUFFLE -> VerseRefresher.shuffleNow(context)
 
             ACTION_TOGGLE_BUBBLE -> {
+                val prefs = Prefs(context)
                 prefs.bubbleEnabled = !prefs.bubbleEnabled
                 VerseService.sync(context)
                 VerseNotifier.post(context)
+                VerseScheduler.scheduleNext(context)
             }
         }
     }

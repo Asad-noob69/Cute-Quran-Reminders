@@ -42,8 +42,10 @@
     <string name="need_overlay">Permission not granted, so the floating card stays off</string>
     <string name="grant_overlay">Please allow \"Display over other apps\"</string>
     <string name="no_settings">Could not open settings on this device</string>
+    <string name="no_autostart">No auto-start screen on this phone, opening battery settings instead</string>
 
-    <string name="battery_hint">Ayah not refreshing? Tap here, then Battery, then Unrestricted.</string>
+    <string name="battery_hint">Ayah not refreshing? Tap here and allow it to run in the background, then set Battery to Unrestricted.</string>
+    <string name="autostart_hint">On Vivo, Oppo, Realme or Xiaomi? Tap here and turn on Auto-start for Ayah Cutie, or it gets closed in the background.</string>
     <string name="samsung_hint">Not showing on your lock screen? Open Settings, then Lock screen, then Notifications, and set View style to Details with Show content on.</string>
     <string name="widget_hint">Long-press your home screen, then Widgets, then Ayah Cutie.</string>
 

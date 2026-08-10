@@ -1,11 +1,13 @@
 package com.cutequran.app
 
 import android.Manifest
+import android.content.ComponentName
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.PowerManager
 import android.provider.Settings
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -71,10 +73,8 @@ class MainActivity : AppCompatActivity() {
         translationSwitch = findViewById(R.id.switch_translation)
 
         findViewById<MaterialButton>(R.id.button_shuffle).setOnClickListener {
-            prefs.shuffle()
+            VerseRefresher.shuffleNow(this)
             showVerse(animate = true)
-            pushEverywhere()
-            VerseScheduler.scheduleNext(this)
         }
 
         findViewById<MaterialButton>(R.id.button_share).setOnClickListener { shareVerse() }
@@ -136,6 +136,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<View>(R.id.battery_hint).setOnClickListener { openBatterySettings() }
+        findViewById<View>(R.id.autostart_hint).setOnClickListener { openAutostartSettings() }
         findViewById<View>(R.id.lockscreen_hint).setOnClickListener { openLockScreenSettings() }
     }
 
@@ -146,7 +147,9 @@ class MainActivity : AppCompatActivity() {
         if (prefs.bubbleEnabled && !canDrawOverlays()) prefs.bubbleEnabled = false
         if (prefs.lockScreenEnabled && !hasNotificationPermission()) prefs.lockScreenEnabled = false
         VerseNotifier.createChannels(this)
-        VerseNotifier.post(this)
+        // If the ROM killed our timer while we were away, this both catches the ayah up
+        // and puts the schedule back.
+        if (!VerseRefresher.catchUp(this)) VerseNotifier.post(this)
         showVerse(animate = false)
         bindSwitches()
     }
@@ -263,11 +266,81 @@ class MainActivity : AppCompatActivity() {
         toast(getString(R.string.no_settings))
     }
 
+    /**
+     * Ask to be left alone by Doze first — that dialog is one tap and it is what actually
+     * keeps the timer alive. Once we already have it, fall through to the app's own
+     * settings page so the user can set Battery to Unrestricted.
+     */
     private fun openBatterySettings() {
-        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !ignoringBatteryOptimizations()) {
+            val ask = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
+                .setData(Uri.parse("package:$packageName"))
+            if (runCatching { startActivity(ask) }.isSuccess) return
+        }
+        val details = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
             .setData(Uri.parse("package:$packageName"))
-        runCatching { startActivity(intent) }
+        runCatching { startActivity(details) }
             .onFailure { toast(getString(R.string.no_settings)) }
+    }
+
+    /**
+     * Vivo, Oppo, Xiaomi and friends keep a separate "auto-start" list, and an app that
+     * is not on it gets force-stopped in the background — which cancels its alarms. There
+     * is no API for it, only these ROM-specific screens.
+     */
+    private fun openAutostartSettings() {
+        val candidates = listOf(
+            // Vivo (Funtouch / OriginOS)
+            ComponentName(
+                "com.vivo.permissionmanager",
+                "com.vivo.permissionmanager.activity.BgStartUpManagerActivity"
+            ),
+            ComponentName(
+                "com.iqoo.secure",
+                "com.iqoo.secure.ui.phoneoptimize.BgStartUpManager"
+            ),
+            ComponentName(
+                "com.iqoo.secure",
+                "com.iqoo.secure.ui.phoneoptimize.AddWhiteListActivity"
+            ),
+            // Xiaomi (MIUI / HyperOS)
+            ComponentName(
+                "com.miui.securitycenter",
+                "com.miui.permcenter.autostart.AutoStartManagementActivity"
+            ),
+            // Oppo / Realme (ColorOS)
+            ComponentName(
+                "com.coloros.safecenter",
+                "com.coloros.safecenter.permission.startup.StartupAppListActivity"
+            ),
+            ComponentName(
+                "com.oppo.safe",
+                "com.oppo.safe.permission.startup.StartupAppListActivity"
+            ),
+            // Huawei (EMUI)
+            ComponentName(
+                "com.huawei.systemmanager",
+                "com.huawei.systemmanager.startupmgr.ui.StartupNormalAppListActivity"
+            ),
+            // Letv / OnePlus-style fallbacks
+            ComponentName(
+                "com.letv.android.letvsafe",
+                "com.letv.android.letvsafe.AutobootManageActivity"
+            )
+        )
+        for (component in candidates) {
+            val intent = Intent().setComponent(component).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            if (packageManager.resolveActivity(intent, 0) == null) continue
+            if (runCatching { startActivity(intent) }.isSuccess) return
+        }
+        toast(getString(R.string.no_autostart))
+        openBatterySettings()
+    }
+
+    private fun ignoringBatteryOptimizations(): Boolean {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return true
+        val power = getSystemService(PowerManager::class.java) ?: return true
+        return power.isIgnoringBatteryOptimizations(packageName)
     }
 
     private fun toast(message: String) {

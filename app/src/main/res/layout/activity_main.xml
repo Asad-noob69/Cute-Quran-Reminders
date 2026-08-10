@@ -511,6 +511,24 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/autostart_hint"
+            style="@style/HintRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                style="@style/HintIcon"
+                android:src="@drawable/ic_battery" />
+
+            <TextView
+                style="@style/HintText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/autostart_hint" />
+        </LinearLayout>
+
+        <LinearLayout
             style="@style/HintRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
