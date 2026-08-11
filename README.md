@@ -89,6 +89,24 @@ Other heavy-handed skins — MIUI, ColorOS, Funtouch — have their own equivale
 
 ---
 
+## 🖥️ On your laptop too
+
+The same card runs on a Linux desktop — a little frameless GTK window that reads the
+very same verse files and offers the very same eight styles.
+
+```bash
+cd desktop
+./install.sh            # fonts, verse files and a launcher, all under $HOME
+python3 ayah_widget.py
+```
+
+Drag it with the left button, resize it from the corner grip, right-click for the theme,
+size, opacity, interval and *start at login*. It needs nothing but PyGObject/GTK 3, which
+your distro almost certainly already has. See [`desktop/README.md`](desktop/README.md) —
+including what Wayland will and won't let a desktop widget do.
+
+---
+
 ## 🔐 Privacy
 
 There isn't much to say, which is the point.
@@ -147,7 +165,9 @@ the verse an actual card on the lock screen.
 | `VerseService.kt` | The floating card, and nothing else |
 | `VerseWidget.kt` | The home-screen widget |
 | `MainActivity.kt` | The pastel settings screen |
+| `WidgetTheme.kt` | The eight widget card styles, and how they're painted onto both the widget and its in-app preview |
 | `assets/quran.txt` | `surah\|ayah\|arabic\|english`, 6,236 lines |
+| `desktop/ayah_widget.py` | The whole Linux desktop widget, drawn with GTK CSS |
 
 ---
 

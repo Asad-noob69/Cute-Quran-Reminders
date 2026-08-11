@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FDEAF4"/>
+      <stop offset="1" stop-color="#E6E2FF"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="116" height="116" rx="30" fill="url(#card)"/>
+  <path fill="#7C5CE0" transform="translate(34 34) scale(2.5)"
+        d="M13.2,2.1C8.1,2.5 4,6.8 4,12c0,5.5 4.5,10 10,10c3.9,0 7.3,-2.2 8.9,-5.5c-1,0.3 -2.1,0.5 -3.2,0.5c-5.2,0 -9.4,-4.2 -9.4,-9.4C10.3,5.6 11.4,3.5 13.2,2.1z"/>
+</svg>
