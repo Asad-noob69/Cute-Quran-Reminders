@@ -46,6 +46,11 @@ class Prefs(context: Context) {
         get() = sp.getBoolean(KEY_TRANSLATION, true)
         set(value) = sp.edit().putBoolean(KEY_TRANSLATION, value).apply()
 
+    /** Which card look the home-screen widget wears. */
+    var widgetTheme: WidgetTheme
+        get() = WidgetTheme.from(sp.getString(KEY_WIDGET_THEME, null))
+        set(value) = sp.edit().putString(KEY_WIDGET_THEME, value.id).apply()
+
     var lastShuffleAt: Long
         get() = sp.getLong(KEY_LAST_SHUFFLE, 0L)
         set(value) = sp.edit().putLong(KEY_LAST_SHUFFLE, value).apply()
@@ -78,6 +83,7 @@ class Prefs(context: Context) {
         const val KEY_BUBBLE = "bubble"
         const val KEY_ARABIC = "arabic"
         const val KEY_TRANSLATION = "translation"
+        const val KEY_WIDGET_THEME = "widget_theme"
         const val KEY_LAST_SHUFFLE = "last_shuffle"
         const val KEY_BUBBLE_X = "bubble_x"
         const val KEY_BUBBLE_Y = "bubble_y"

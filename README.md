@@ -42,6 +42,7 @@ to.
 | 🔒 **On your lock screen** | A silent notification puts the ayah where you'll see it every time you pick up your phone. |
 | 💬 **Floating over your apps** | A soft little card on top of whatever you're doing. Drag it anywhere, shrink it to a moon chip, or dismiss it. |
 | 🏠 **Home screen widget** | The same ayah on your home screen, with a shuffle button. |
+| 🎨 **Eight widget styles** | Dress the widget card however you like — frosted and smoked glass, midnight, sunset, mint, paper, neon or the pastel default — with a live preview in the app. |
 | ⏰ **On your schedule** | A new ayah every 15 minutes, hour, 3 hours or 6 hours. Every surface stays in sync. |
 | 🌸 **Made to be pretty** | Pastel gradients, rounded cards, Amiri Quran for the Arabic and Quicksand for everything else. |
 | 🤫 **Never makes a sound** | No pings, no buzzes, no badges. It just sits there being nice. |

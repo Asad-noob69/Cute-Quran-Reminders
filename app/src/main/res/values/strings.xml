@@ -30,6 +30,20 @@
     <string name="translation_title">English meaning</string>
     <string name="translation_sub">Dr. Mustafa Khattab, The Clear Quran</string>
 
+    <string name="section_theme">How the widget looks</string>
+    <string name="theme_sub">Pick a card style for your home screen widget</string>
+    <string name="theme_saved">Widget style saved</string>
+    <string name="theme_sample">Aa</string>
+
+    <string name="theme_cotton">Cotton Candy</string>
+    <string name="theme_glass">Frosted Glass</string>
+    <string name="theme_glass_dark">Smoked Glass</string>
+    <string name="theme_midnight">Midnight</string>
+    <string name="theme_sunset">Sunset</string>
+    <string name="theme_mint">Mint</string>
+    <string name="theme_paper">Paper</string>
+    <string name="theme_neon">Neon</string>
+
     <string name="interval_15">15 min</string>
     <string name="interval_30">30 min</string>
     <string name="interval_60">1 hr</string>

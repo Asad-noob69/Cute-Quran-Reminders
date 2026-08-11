@@ -11,6 +11,7 @@ import android.os.PowerManager
 import android.provider.Settings
 import android.view.View
 import android.view.animation.AnimationUtils
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var arabic: TextView
     private lateinit var english: TextView
     private lateinit var meaning: TextView
+
+    private lateinit var previewCard: View
+    private lateinit var themeList: LinearLayout
 
     private lateinit var lockSwitch: MaterialSwitch
     private lateinit var bubbleSwitch: MaterialSwitch
@@ -66,6 +70,10 @@ class MainActivity : AppCompatActivity() {
         arabic = findViewById(R.id.verse_arabic)
         english = findViewById(R.id.verse_english)
         meaning = findViewById(R.id.verse_meaning)
+
+        previewCard = findViewById(R.id.widget_preview)
+        themeList = findViewById(R.id.theme_list)
+        buildThemeChips()
 
         lockSwitch = findViewById(R.id.switch_lock)
         bubbleSwitch = findViewById(R.id.switch_bubble)
@@ -165,9 +173,62 @@ class MainActivity : AppCompatActivity() {
         arabic.visibility = if (prefs.showArabic) View.VISIBLE else View.GONE
         english.visibility = if (prefs.showTranslation) View.VISIBLE else View.GONE
 
+        showPreview(verse)
+
         if (animate) {
             val pop = AnimationUtils.loadAnimation(this, R.anim.verse_pop)
             findViewById<View>(R.id.verse_card).startAnimation(pop)
+        }
+    }
+
+    // ------------------------------------------------------------------ widget style
+
+    /** The preview is the widget's own layout, so what you see is what lands on the home screen. */
+    private fun showPreview(verse: Verse) {
+        previewCard.findViewById<TextView>(R.id.widget_reference).text = verse.reference
+        previewCard.findViewById<TextView>(R.id.widget_arabic).apply {
+            text = verse.arabic
+            visibility = if (prefs.showArabic) View.VISIBLE else View.GONE
+        }
+        previewCard.findViewById<TextView>(R.id.widget_english).apply {
+            text = verse.english
+            visibility = if (prefs.showTranslation) View.VISIBLE else View.GONE
+        }
+        prefs.widgetTheme.applyTo(previewCard)
+    }
+
+    private fun buildThemeChips() {
+        WidgetTheme.values().forEach { theme ->
+            val chip = layoutInflater.inflate(R.layout.theme_chip, themeList, false)
+            chip.findViewById<View>(R.id.chip_swatch).setBackgroundResource(theme.background)
+            chip.findViewById<TextView>(R.id.chip_sample).setTextColor(theme.arabicColor)
+            chip.findViewById<TextView>(R.id.chip_label).setText(theme.label)
+            chip.contentDescription = getString(theme.label)
+            chip.setOnClickListener {
+                if (prefs.widgetTheme == theme) return@setOnClickListener
+                prefs.widgetTheme = theme
+                showPreview(Quran.verseAt(this, prefs.currentIndex))
+                markChosenTheme()
+                VerseWidget.refreshAll(this)
+                toast(getString(R.string.theme_saved))
+            }
+            themeList.addView(chip)
+        }
+    }
+
+    private fun markChosenTheme() {
+        WidgetTheme.values().forEachIndexed { index, theme ->
+            val chip = themeList.getChildAt(index) ?: return
+            val chosen = theme == prefs.widgetTheme
+            chip.findViewById<View>(R.id.chip_ring).setBackgroundResource(
+                if (chosen) R.drawable.theme_chip_ring else R.drawable.theme_chip_ring_off
+            )
+            chip.findViewById<TextView>(R.id.chip_label).setTextColor(
+                ContextCompat.getColor(
+                    this,
+                    if (chosen) R.color.lavender_deep else R.color.ink_faint
+                )
+            )
         }
     }
 
@@ -206,6 +267,7 @@ class MainActivity : AppCompatActivity() {
                 else -> R.id.interval_360
             }
         )
+        markChosenTheme()
         bindingSwitches = false
     }
 

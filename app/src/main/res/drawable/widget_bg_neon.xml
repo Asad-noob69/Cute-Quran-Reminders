@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:angle="315" android:startColor="#FF160B2E" android:endColor="#FF090616" />
+            <corners android:radius="26dp" />
+            <stroke android:width="2dp" android:color="#CC63E6FF" />
+        </shape>
+    </item>
+    <!-- an inner halo so the rim reads as a glow rather than a plain border -->
+    <item android:top="2dp" android:bottom="2dp" android:left="2dp" android:right="2dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="24dp" />
+            <stroke android:width="2dp" android:color="#3363E6FF" />
+        </shape>
+    </item>
+</layer-list>

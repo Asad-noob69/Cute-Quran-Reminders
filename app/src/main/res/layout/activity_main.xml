@@ -377,6 +377,55 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- widget look -->
+        <LinearLayout
+            style="@style/SectionHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp">
+
+            <ImageView
+                style="@style/SectionIcon"
+                android:src="@drawable/ic_widgets" />
+
+            <TextView
+                style="@style/SectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/section_theme" />
+        </LinearLayout>
+
+        <include
+            android:id="@+id/widget_preview"
+            layout="@layout/widget_verse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="6dp"
+            android:fontFamily="@font/quicksand_regular"
+            android:text="@string/theme_sub"
+            android:textColor="@color/ink_faint"
+            android:textSize="12sp" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:clipToPadding="false"
+            android:paddingHorizontal="2dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/theme_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+
         <!-- when -->
         <LinearLayout
             style="@style/SectionHeader"

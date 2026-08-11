@@ -56,6 +56,8 @@ class VerseWidget : AppWidgetProvider() {
             val verse = Quran.verseAt(context, prefs.currentIndex)
             val views = RemoteViews(context.packageName, R.layout.widget_verse)
 
+            prefs.widgetTheme.applyTo(views)
+
             views.setTextViewText(R.id.widget_reference, verse.reference)
             views.setTextViewText(R.id.widget_arabic, verse.arabic)
             views.setTextViewText(R.id.widget_english, verse.english)
