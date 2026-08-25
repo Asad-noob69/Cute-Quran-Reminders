@@ -85,6 +85,8 @@ class MainActivity : AppCompatActivity() {
             showVerse(animate = true)
         }
 
+        findViewById<MaterialButton>(R.id.button_copy).setOnClickListener { copyVerse() }
+
         findViewById<MaterialButton>(R.id.button_share).setOnClickListener { shareVerse() }
 
         lockSwitch.setOnCheckedChangeListener { _, checked ->
@@ -232,9 +234,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun copyVerse() {
+        VerseClipboard.copy(this, Quran.verseAt(this, prefs.currentIndex))
+    }
+
     private fun shareVerse() {
-        val verse = Quran.verseAt(this, prefs.currentIndex)
-        val text = "${verse.arabic}\n\n“${verse.english}”\n\n— ${verse.reference}"
+        val text = Quran.verseAt(this, prefs.currentIndex).shareText
         startActivity(
             Intent.createChooser(
                 Intent(Intent.ACTION_SEND).setType("text/plain")

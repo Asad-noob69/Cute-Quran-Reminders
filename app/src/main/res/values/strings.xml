@@ -6,6 +6,8 @@
     <string name="new_verse">New ayah</string>
     <string name="share_verse">Share ayah</string>
     <string name="share">Share</string>
+    <string name="copied">Ayah copied</string>
+    <string name="clip_label">Ayah</string>
 
     <string name="channel_name">Verse on lock screen</string>
     <string name="channel_desc">Keeps the current ayah pinned to your lock screen.</string>
@@ -64,6 +66,7 @@
     <string name="widget_hint">Long-press your home screen, then Widgets, then Ayah Cutie.</string>
 
     <string name="cd_shuffle">Show another ayah</string>
+    <string name="cd_copy">Copy this ayah</string>
     <string name="cd_close">Close</string>
     <string name="cd_minimise">Minimise</string>
     <string name="cd_drag">Drag to move</string>

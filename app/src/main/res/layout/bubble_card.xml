@@ -53,6 +53,16 @@
                 android:textSize="13sp" />
 
             <ImageButton
+                android:id="@+id/bubble_copy"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/cd_copy"
+                android:padding="8dp"
+                android:src="@drawable/ic_copy"
+                android:tint="@color/lavender_deep" />
+
+            <ImageButton
                 android:id="@+id/bubble_shuffle"
                 android:layout_width="34dp"
                 android:layout_height="34dp"

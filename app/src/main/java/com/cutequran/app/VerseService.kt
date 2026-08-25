@@ -115,6 +115,9 @@ class VerseService : Service() {
                     .setAction(VerseActionReceiver.ACTION_SHUFFLE)
             )
         }
+        view.findViewById<ImageButton>(R.id.bubble_copy).setOnClickListener {
+            VerseClipboard.copyCurrent(this)
+        }
         view.findViewById<ImageButton>(R.id.bubble_close).setOnClickListener {
             prefs.bubbleEnabled = false
             VerseNotifier.post(this)

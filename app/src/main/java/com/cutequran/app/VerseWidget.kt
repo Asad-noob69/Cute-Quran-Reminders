@@ -89,6 +89,15 @@ class VerseWidget : AppWidgetProvider() {
                 )
             )
             views.setOnClickPendingIntent(
+                R.id.widget_copy,
+                PendingIntent.getBroadcast(
+                    context, 13,
+                    Intent(context, VerseActionReceiver::class.java)
+                        .setAction(VerseActionReceiver.ACTION_COPY),
+                    flags
+                )
+            )
+            views.setOnClickPendingIntent(
                 R.id.widget_root,
                 PendingIntent.getActivity(
                     context, 12,

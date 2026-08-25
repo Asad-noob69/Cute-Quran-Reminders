@@ -167,6 +167,23 @@
                 app:iconTint="@color/white" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_copy"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/cd_copy"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                android:minWidth="56dp"
+                app:cornerRadius="28dp"
+                app:icon="@drawable/ic_copy"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconTint="@color/lavender_deep"
+                app:strokeColor="@color/lavender" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_share"
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"

@@ -15,7 +15,7 @@ enum class WidgetTheme(
     val label: Int,
     val background: Int,
     val buttonBackground: Int,
-    /** Reference line, moon and shuffle icon. */
+    /** Reference line, moon, copy and shuffle icons. */
     val accent: Int,
     val arabicColor: Int,
     val englishColor: Int
@@ -74,6 +74,8 @@ enum class WidgetTheme(
         views.setInt(R.id.widget_root, "setBackgroundResource", background)
         views.setInt(R.id.widget_shuffle, "setBackgroundResource", buttonBackground)
         views.setInt(R.id.widget_shuffle, "setColorFilter", accent)
+        views.setInt(R.id.widget_copy, "setBackgroundResource", buttonBackground)
+        views.setInt(R.id.widget_copy, "setColorFilter", accent)
         views.setInt(R.id.widget_icon, "setColorFilter", accent)
         views.setTextColor(R.id.widget_reference, accent)
         views.setTextColor(R.id.widget_arabic, arabicColor)
@@ -84,6 +86,10 @@ enum class WidgetTheme(
     fun applyTo(card: View) {
         card.setBackgroundResource(background)
         card.findViewById<ImageView>(R.id.widget_shuffle).apply {
+            setBackgroundResource(buttonBackground)
+            setColorFilter(accent)
+        }
+        card.findViewById<ImageView>(R.id.widget_copy).apply {
             setBackgroundResource(buttonBackground)
             setColorFilter(accent)
         }

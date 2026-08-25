@@ -20,6 +20,8 @@ class VerseActionReceiver : BroadcastReceiver() {
             // The user asked for it, so always give them a new one.
             ACTION_SHUFFLE -> VerseRefresher.shuffleNow(context)
 
+            ACTION_COPY -> VerseClipboard.copyCurrent(context)
+
             ACTION_TOGGLE_BUBBLE -> {
                 val prefs = Prefs(context)
                 prefs.bubbleEnabled = !prefs.bubbleEnabled
@@ -33,6 +35,7 @@ class VerseActionReceiver : BroadcastReceiver() {
     companion object {
         const val ACTION_TICK = "com.cutequran.app.TICK"
         const val ACTION_SHUFFLE = "com.cutequran.app.SHUFFLE"
+        const val ACTION_COPY = "com.cutequran.app.COPY"
         const val ACTION_TOGGLE_BUBBLE = "com.cutequran.app.TOGGLE_BUBBLE"
     }
 }

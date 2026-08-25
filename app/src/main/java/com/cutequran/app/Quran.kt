@@ -16,6 +16,9 @@ data class Verse(
 ) {
     /** e.g. "Al-Baqara 2:255" */
     val reference: String get() = "$surahEnglish $surah:$ayah"
+
+    /** The ayah as plain text, the way it goes to the clipboard or a share sheet. */
+    val shareText: String get() = "$arabic\n\n\u201C$english\u201D\n\n\u2014 $reference"
 }
 
 /**
