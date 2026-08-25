@@ -6,7 +6,7 @@
 
 *a little light, every day*
 
-[![Download APK](https://img.shields.io/badge/Download%20APK-6.9%20MB-7C5CE0?style=for-the-badge&logo=android&logoColor=white)](https://github.com/Asad-noob69/Cute-Quran-Reminders/releases/latest/download/AyahCutie.apk)
+[![Download APK](https://img.shields.io/badge/Download%20APK-7.2%20MB-7C5CE0?style=for-the-badge&logo=android&logoColor=white)](https://github.com/Asad-noob69/Cute-Quran-Reminders/releases/latest/download/AyahCutie.apk)
 [![Android 6.0+](https://img.shields.io/badge/Android-6.0%2B-A8E6CF?style=for-the-badge&logo=android&logoColor=333)](#installing)
 [![No internet permission](https://img.shields.io/badge/Internet-not%20requested-FFB7D5?style=for-the-badge)](#privacy)
 [![License MIT](https://img.shields.io/badge/License-MIT-BFE3FF?style=for-the-badge)](LICENSE)
